@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Anna Romanovna</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    Anna Romanovna
+                </a>
+                
+                <div class="burger" onclick="toggleMenu()">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html#about" onclick="toggleMenu()">Обо мне</a>
+                    <a href="index.html#services" onclick="toggleMenu()">Услуги</a>
+                    <div class="dropdown">
+                        <a href="portfolio.html">Портфолио ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#reportage">Репортажи</a>
+                            <a href="#portraits">Портреты</a>
+                        </div>
+                    </div>
+                    <a href="index.html#contacts" onclick="toggleMenu()">Контакты</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="portfolio" class="container portfolio-section">
+        <h2 class="section-title reveal">Портфолио</h2>
+        
+        <div id="reportage" class="reveal">
+            <h3 class="portfolio-subtitle">Репортажная съемка</h3>
+            <div class="gallery">
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_0366.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_0805.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_0808.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1069.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1281.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1283.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1336.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1340.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1352.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1438.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1752.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1760.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1763.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1767.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_1778.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_3288.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_3499.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_3685.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_3869.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_4423 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_4448.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_5291.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_5585.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_5595.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_5654.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_5784.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_6206.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_6621.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_6627 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_6868 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7055 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7138 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7175.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7218.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7239 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7245.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7329.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7754.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7839.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_7847.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_8058.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_8618.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_8632.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_8661.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_8762 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_9050.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_9261.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_9564.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_9572.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/reportage/IMG_20251029_223824_917.jpg" alt="Фото"></div>
+            </div>
+        </div>
+
+        <div id="portraits" class="reveal">
+            <h3 class="portfolio-subtitle">Портретная съемка</h3>
+            <div class="gallery">
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_0066.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_0392.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_0436.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_0576.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_0607.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_0683.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_1025.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_1058.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_1790.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_1828.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2546.JPG" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2549.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2764.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2788.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2902.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2982.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_2985.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_3727.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_3905 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_3917 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_4990.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_5003.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_5154.jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_6046 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_6050 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_6779 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_6811 (1).jpg" alt="Фото"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="assets/portfolio/portraits/IMG_9819.JPG" alt="Фото"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Просмотр">
+    </div>
+
+    <footer class="contacts reveal">
+        <div class="container">
+            <div class="copyright">
+                © 2026 by GavrilenkoDmitry. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 100;
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        reveal();
+
+        // Лайтбокс
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox(event) {
+            if (event.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Мобильное меню
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('nav-active');
+        }
+    </script>
+
+</body>
+</html>

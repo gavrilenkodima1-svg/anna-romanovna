@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Romanovna | Фотограф</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    Anna Romanovna
+                </a>
+
+                <div class="burger" onclick="toggleMenu()">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#about" onclick="toggleMenu()">Обо мне</a>
+                    <a href="#services" onclick="toggleMenu()">Услуги</a>
+                    <div class="dropdown">
+                        <a href="portfolio.html">Портфолио ▾</a>
+                        <div class="dropdown-content">
+                            <a href="portfolio.html#reportage">Репортажи</a>
+                            <a href="portfolio.html#portraits">Портреты</a>
+                        </div>
+                    </div>
+                    <a href="#contacts" onclick="toggleMenu()">Контакты</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <div class="hero reveal">
+            <div class="avatar-frame">
+                <img src="assets/images/avatar.jpg" alt="Анна Романовна">
+            </div>
+            <div class="bio">
+                <h1>Anna <span>Romanovna</span></h1>
+                <p>
+                    Меня зовут Иванова Анна. Я имею большой опыт в съемке, от дня открытых дверей в учебном заведении до съемки в Госдуме и корпоратива инженерной компании.
+                </p>
+                <p>
+                    Больше всего люблю ловить искренние эмоции людей. Всегда за креатив и поиск новых идей.
+                </p>
+                <a href="#contacts" class="btn">Записаться на съемку</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title reveal">Услуги и Цены</h2>
+            <div class="services-grid">
+                
+                <div class="service-card reveal">
+                    <div class="service-icon">📷</div>
+                    <div class="service-title">Репортажная съемка</div>
+                    <div class="service-desc">
+                        Профессиональная съемка мероприятий, праздников, концертов и корпоративов. Ловлю самые важные моменты и живые эмоции. Передача атмосферы вашего события.
+                    </div>
+                    <div class="service-price">1 500 ₽ / час</div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">✦</div>
+                    <div class="service-title">Портретная съемка</div>
+                    <div class="service-desc">
+                        Индивидуальная фотосессия, направленная на раскрытие вашего характера. Помощь в позировании, подбор локации и образа.
+                    </div>
+                    <div class="service-price">1 500 ₽ / час</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts" class="contacts reveal">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            
+            <div class="social-icons">
+                <div class="social-item">
+                    <a href="tel:+79687082765" class="social-link" title="Позвонить">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                    <span class="social-label">Телефон</span>
+                </div>
+
+                <div class="social-item">
+                    <a href="https://t.me/Ivanova_Anna_08" target="_blank" class="social-link" title="Telegram">
+                        <svg viewBox="0 0 24 24"><path d="M21.93 2.56c-.23-.16-.54-.18-.79-.06L2.26 10.3c-.56.26-.58 1.07-.03 1.36l4.94 2.63 1.63 5.46c.14.48.74.62 1.07.25l2.42-2.73 4.96 3.65c.44.33 1.07.13 1.22-.4l3.96-17.15c.08-.34-.1-.68-.4-.81zM7.22 13.56l-3.3-1.75 14.54-6.17-11.24 7.92zm3.32 4.4v-3.08l1.66 1.22-1.66 1.86zm3.3-1.6l-2.45-1.8 8.78-6.18-6.33 7.98z"/></svg>
+                    </a>
+                    <span class="social-label">Telegram</span>
+                </div>
+
+                <div class="social-item">
+                    <a href="https://vk.com/ivanova_anna_08" target="_blank" class="social-link" title="ВКонтакте">
+                        <svg viewBox="0 0 24 24"><path d="M15.6 21H8.4C4.8 21 3 19.2 3 15.6V8.4C3 4.8 4.8 3 8.4 3h7.2C19.2 3 21 4.8 21 8.4v7.2c0 3.6-1.8 5.4-5.4 5.4zm-4.37-6.33c2.25 0 2.37 1.84 4.02 1.84 1.25 0 1.9-1.32 1.9-1.32s-.13-1.2-1.04-1.7c-1.3-.72-2.9-1.73-2.9-2.9 0-1.2 1.3-2.32 2.7-2.32.96 0 1.8.52 1.8.52s-.22 1.1-.96 1.15c-1.36.08-1.7 1-1.7 1.45 0 .63.67 1.16 1.3 1.62.63.48 2.05 1.55 2.05 3.32 0 2.22-2.02 3.03-3.6 3.03-2.7 0-3.23-1.63-3.23-1.63s-1.8.1-2.48-.12c-.52-.16-1.12-.76-2.22-3.08-.1-.2-.22-.38-.22-.65 0-.5.5-.66.5-.66h2.2c.28 0 .5.16.6.46 0 0 .58 1.6 1.38 2.37.5.47.8.4.8-.57V9.7c0-1.73-.8-1.8-.8-1.8h2.32c.32 0 .5.16.5.64v3.2c0 .35.15.48.25.48.1 0 .28-.1.6-.53.94-1.24 1.32-3.25 1.32-3.25s.12-.25.4-.25h2.25c.34 0 .5.18.5.55 0 .27-.26 1.2-1.2 2.6-.96 1.4-2.5 2.63-2.8 2.86-.3.22-.32.32 0 .7.26.3 1.08 1.1 1.46 1.5.43.45.62.66.62.9 0 .4-.6.44-.6.44h-2.1c-.55 0-.8-.3-1.05-.6-.5-.58-1.18-1.42-1.58-1.42-.25 0-.35.1-.35.5v1.65c0 .34-.1.6-.74.6-2.18 0-4.04-1.62-5.45-4.54C6.2 8.7 6.13 8.5 6.4 8.5h2.3c.27 0 .42.13.52.4.67 1.84 1.82 3.86 3.86 3.86z"/></svg>
+                    </a>
+                    <span class="social-label">ВКонтакте</span>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2026 by GavrilenkoDmitry. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 100;
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        reveal();
+
+        // Лайтбокс
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox(event) {
+            if (event.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Мобильное меню
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('nav-active');
+        }
+    </script>
+
+</body>
+</html>
