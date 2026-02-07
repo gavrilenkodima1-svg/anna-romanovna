@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna Romanovna | Фотограф</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -41,6 +43,24 @@
         </div>
     </header>
 
+    <section class="cinematic-slider">
+        <div class="slider-wrapper">
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1767.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_3288.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_8762%20%281%29.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1281.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_0805.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1752.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_7754.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_8661.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_7245.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_4448.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1283.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_9564.jpg');"></div>
+        </div>
+        <div class="slider-overlay"></div>
+    </section>
+
     <section id="about" class="container">
         <div class="hero reveal">
             <div class="avatar-frame">
@@ -49,7 +69,7 @@
             <div class="bio">
                 <h1>Anna <span>Romanovna</span></h1>
                 <p>
-                    Меня зовут Иванова Анна. Я имею большой опыт в съемке, от дня открытых дверей в учебном заведении до съемки в общественной приёмной депутата ГД и корпоратива инженерной компании.
+                    Меня зовут Иванова Анна. Я имею большой опыт в съемке, от дня открытых дверей в учебном заведении до съемки в Госдуме и корпоратива инженерной компании.
                 </p>
                 <p>
                     Больше всего люблю ловить искренние эмоции людей. Всегда за креатив и поиск новых идей.
@@ -120,6 +140,7 @@
     </footer>
 
     <script>
+        // Анимация при скролле
         window.addEventListener('scroll', reveal);
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
@@ -127,12 +148,20 @@
                 var windowheight = window.innerHeight;
                 var revealtop = reveals[i].getBoundingClientRect().top;
                 var revealpoint = 100;
-                if (revealtop < windowheight - revealpoint) { reveals[i].classList.add('active'); } 
-                else { reveals[i].classList.remove('active'); }
+                if (revealtop < windowheight - revealpoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
             }
         }
         reveal();
-        function toggleMenu() { document.getElementById('navLinks').classList.toggle('nav-active'); }
+
+        // Мобильное меню
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('nav-active');
+        }
     </script>
 
 </body>
