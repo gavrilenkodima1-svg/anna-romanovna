@@ -143,6 +143,7 @@ header {
 .slide:nth-child(10) { animation-delay: 45s; }
 .slide:nth-child(11) { animation-delay: 50s; }
 .slide:nth-child(12) { animation-delay: 55s; }
+.slide:nth-child(13) { animation-delay: 60s; }
 
 @keyframes kenburns {
     0% { opacity: 0; transform: scale(1); }
