@@ -273,5 +273,100 @@ header {
     .bio h1 { font-size: 2.8rem; }
     .gallery { column-count: 1; }
     .section-title { font-size: 2.2rem; }
-    .avatar-frame { width: 220px; height: 220px; }
+}
+/* --- ОТЗЫВЫ --- */
+.reviews-section {
+    padding: 80px 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+.leave-review-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #636e72;
+    transition: color 0.3s ease;
+}
+
+.leave-review-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Делаем строгую сетку на 3 колонки */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+    align-items: stretch;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+/* Увеличиваем фото до размеров как на референсе */
+.review-avatar {
+    width: 180px; /* Увеличили размер */
+    height: 180px; /* Увеличили размер */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 2px solid var(--gray-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+/* Принудительно отправляем весь текст во вторую колонку */
+.review-name, 
+.review-subtitle, 
+.review-item p.review-text {
+    grid-column: 2;
+}
+
+/* Аккуратная типографика для компактного вида */
+.review-name {
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    margin-bottom: 0;
+    color: var(--text-color);
+    line-height: 1.2;
+    padding-top: 4px; /* Легкое выравнивание имени по верхнему краю аватара */
+}
+
+.review-subtitle {
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    margin-top: 2px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.review-item p.review-text {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #636e72;
+    margin-top: 4px;
+    margin-bottom: 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 40px 15px;
+    }
 }
