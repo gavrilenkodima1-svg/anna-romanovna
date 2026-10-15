@@ -4,208 +4,779 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna Romanovna | Фотограф</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontsource-playfair-display@5.0.0/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontsource-montserrat@5.0.0/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c2c2c;
+            background: #fafafa;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2a9d8f;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 13px;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .burger span {
+            width: 26px;
+            height: 2px;
+            background: #1a1a1a;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 60px 80px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 16px 44px;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: #2a9d8f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(42, 157, 143, 0.3);
+        }
+
+        /* Section titles */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            text-align: center;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: #2a9d8f;
+            margin: 0 auto 50px;
+        }
+
+        /* Reviews Section */
+        #reviews {
+            padding: 100px 60px;
+            background: #fafafa;
+            position: relative;
+        }
+
+        #reviews::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(42, 157, 143, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(42, 157, 143, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leave-review-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: transparent;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .leave-review-btn:hover {
+            border-color: #2a9d8f;
+            color: #2a9d8f;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        }
+
+        .review-screenshot {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s;
+        }
+
+        .review-card:hover .review-screenshot img {
+            transform: scale(1.03);
+        }
+
+        /* Placeholder for screenshots */
+        .screenshot-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #f8f8f8 0%, #efefef 100%);
+            color: #999;
+        }
+
+        .screenshot-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.4;
+        }
+
+        .screenshot-placeholder span {
+            font-size: 13px;
+            letter-spacing: 1px;
+            opacity: 0.6;
+        }
+
+        .review-author {
+            padding: 20px 24px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Services */
+        #services {
+            padding: 100px 60px;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+        }
+
+        .service-card {
+            padding: 40px 32px;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #2a9d8f;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(42, 157, 143, 0.1);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            font-size: 14px;
+            color: #2a9d8f;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .promo-banner {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #2a9d8f 0%, #1a7a6e 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .promo-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .promo-banner p {
+            font-size: 16px;
+            margin-bottom: 28px;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            display: inline-block;
+            padding: 14px 36px;
+            background: white;
+            color: #1a7a6e;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Contacts */
+        #contacts {
+            padding: 100px 60px;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        #contacts .section-title {
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+            padding: 24px 32px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            min-width: 160px;
+        }
+
+        .contact-link:hover {
+            border-color: #2a9d8f;
+            background: rgba(42, 157, 143, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .contact-link .icon {
+            font-size: 28px;
+        }
+
+        .contact-link span {
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #2a9d8f;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 24px 60px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+
+            #reviews, #services, #contacts {
+                padding: 60px 24px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <div class="header-container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    Anna Romanovna
-                </a>
-
-                <div class="burger" onclick="toggleMenu()">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div> 
+    <nav>
+        <a href="index.html" class="nav-logo">Anna Romanovna</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li class="dropdown">
+                <a href="portfolio.html">Портфолио ▾</a>
+                <div class="dropdown-menu">
+                    <a href="portfolio.html#reportage">Репортажи</a>
+                    <a href="portfolio.html#portraits">Портреты</a>
                 </div>
+            </li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-                <div class="nav-links" id="navLinks">
-                    <a href="#about" onclick="toggleMenu()">Обо мне</a>
-                 <a href="#reviews" onclick="toggleMenu()">Отзывы</a>
-                 <a href="#services" onclick="toggleMenu()">Услуги</a>                               <div class="dropdown">
-                        <a href="portfolio.html">Портфолио ▾</a>
-                        <div class="dropdown-content">
-                            <a href="portfolio.html#reportage">Репортажи</a>
-                            <a href="portfolio.html#portraits">Портреты</a>
-                      </div>
-                   </div>
-                       
-                    <a href="#contacts" onclick="toggleMenu()">Контакты</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <section class="cinematic-slider">
-        <div class="slider-wrapper">
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_26-03-23_00-20-27-163.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1767.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_3288.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_26-03-23_00-05-54-523.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1281.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_0805.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1752.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_7754.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_8661.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_7245.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_4448.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_1283.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/portfolio/reportage/IMG_9564.jpg');"></div>
-        </div>
-        <div class="slider-overlay"></div>
-    </section>
-
-    <section id="about" class="container">
-        <div class="hero reveal">
-            <div class="avatar-frame">
-                <img src="assets/images/avatar.jpg" alt="Анна Романовна">
-            </div>
-            <div class="bio">
-                <h1>Anna <span>Romanovna</span></h1>
-                <p>
-                    Меня зовут Иванова Анна. Я имею большой опыт в съемке, от дня открытых дверей в учебном заведении до съемки в общественной приёмной депутата ГД и корпоратива инженерной компании.
-                </p>
-                <p>
-                    Больше всего люблю ловить искренние эмоции людей. Всегда за креатив и поиск новых идей.
-                </p>
-                <a href="#contacts" class="btn">Записаться на съемку</a>
-            </div>
+    <section class="hero" id="about">
+        <div class="hero-content fade-in">
+            <h1>Anna Romanovna</h1>
+            <div class="subtitle">Фотограф</div>
+            <p>Меня зовут Иванова Анна. Я имею большой опыт в съемке, от дня открытых дверей в учебном заведении до съемки в общественной приёмной депутата ГД и корпоратива инженерной компании.</p>
+            <p>Больше всего люблю ловить искренние эмоции людей. Всегда за креатив и поиск новых идей.</p>
+            <a href="#contacts" class="btn-primary">Записаться на съемку</a>
         </div>
     </section>
 
-    <section id="services" class="services-section">
-<section id="reviews" class="container reviews-section">
-        <h2 class="section-title reveal">Отзывы</h2>
-        
-        <div class="reviews-header reveal">
+    <section id="reviews">
+        <div class="reviews-header fade-in">
+            <h2 class="section-title">Отзывы</h2>
+            <div class="section-divider"></div>
             <a href="#contacts" class="leave-review-btn">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
                 Оставить отзыв
             </a>
         </div>
 
-    <div class="reviews-grid">
-    <div class="review-item reveal">
-        <img src="assets/images/Denis.jpg" alt="Денис" class="review-avatar">
-        <h3 class="review-name">Денис</h3>
-        <p class="review-text">
-            Фотографии безумно красивые!
-            Фотограф был очень добрым, дружелюбным, а самое главное, профессионал!
-            Вообщем, получилось круто! 
-        </p> </div>
-    
-    <div class="review-item reveal">
-        <img src="assets/images/Dima.jpg" alt="Дима" class="review-avatar">
-                <h3 class="review-name">Дима</h3>
-                <p class="review-text">               
- Анна - прекрасный фотограф. Умеет подбирать красивые локации, помогает в подборе поз, использует креативные решения в съёмке. Результатом очень доволен. Рекомендую.      
-</p>
+        <div class="reviews-grid">
+            <!-- Review 1: Ульяна -->
+            <div class="review-card fade-in">
+                <div class="review-screenshot">
+                    <!-- Замените src на путь к вашему скриншоту -->
+                    <img src="reviews/Screenshot_20261013_081455_Telegram-compressed.jpeg" alt="Отзыв Ульяны" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-placeholder" style="display:none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span>Скриншот отзыва</span>
+                    </div>
+                </div>
+                <div class="review-author">Ульяна</div>
             </div>
+
+            <!-- Review 2: Полина -->
+            <div class="review-card fade-in">
+                <div class="review-screenshot">
+                    <!-- Замените src на путь к вашему скриншоту -->
+                    <img src="reviews/Screenshot_20261010_164415_Telegram-compressed.jpeg" alt="Отзыв Полины" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-placeholder" style="display:none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span>Скриншот отзыва</span>
+                    </div>
+                </div>
+                <div class="review-author">Полина</div>
+            </div>
+
+            <!-- Review 3: Женя -->
+            <div class="review-card fade-in">
+                <div class="review-screenshot">
+                    <!-- Замените src на путь к вашему скриншоту -->
+                    <img src="reviews/Screenshot_20261010_145157_Telegram-compressed.jpeg" alt="Отзыв Жени" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-placeholder" style="display:none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span>Скриншот отзыва</span>
+                    </div>
+                </div>
+                <div class="review-author">Женя</div>
             </div>
         </div>
-    </section> <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title reveal">Услуги и Цены</h2>
-            <div class="services-grid">
-                
-                <div class="service-card reveal">
-                    <div class="service-icon">📷</div>
-                    <div class="service-title">Репортажная съемка</div>
-                    <div class="service-desc">
-                        Профессиональная съемка мероприятий, праздников, концертов и корпоративов. Ловлю самые важные моменты и живые эмоции. Передача атмосферы вашего события.
-                    </div>
-                    <div class="service-price">1 500 ₽ / час</div>
-                </div>
 
-                <div class="service-card reveal">
-                    <div class="service-icon">✦</div>
-                    <div class="service-title">Портретная съемка</div>
-                    <div class="service-desc">
-                        Индивидуальная фотосессия, направленная на раскрытие вашего характера. Помощь в позировании, подбор локации и образа.
+ <!-- Review 4: Соня -->
+            <div class="review-card fade-in">
+                <div class="review-screenshot">
+                    <!-- Замените src на путь к вашему скриншоту -->
+                    <img src="reviews/Screenshot_20261013_081402_Telegram-compressed.jpeg" alt="Отзыв Сони" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="screenshot-placeholder" style="display:none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span>Скриншот отзыва</span>
                     </div>
-                    <div class="service-price">1 500 ₽ / час</div>
                 </div>
-
+                <div class="review-author">Женя</div>
             </div>
-        </div>
-    </section> ```
-<!-- Плашка Акции -->
-    <section class="promo-section container reveal">
-        <div class="promo-banner">
-            <svg class="promo-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-            <h2 class="promo-title">Специальная акция</h2>
-            <p class="promo-text">Приведи друга и получи скидку <span>20%</span> на любую фотосессию!</p>
-            <a href="#contacts" class="btn promo-btn">Записаться со скидкой</a>
         </div>
     </section>
 
-    <footer id="contacts" class="contacts reveal">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            
-            <div class="social-icons">
-                <div class="social-item">
-                    <a href="tel:+79687082765" class="social-link" title="Позвонить">
-                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    </a>
-                    <span class="social-label">Телефон</span>
-                </div>
 
-                <div class="social-item">
-                    <a href="https://t.me/Ivanova_Anna_08" target="_blank" class="social-link" title="Telegram">
-                        <svg viewBox="0 0 24 24"><path d="M21.93 2.56c-.23-.16-.54-.18-.79-.06L2.26 10.3c-.56.26-.58 1.07-.03 1.36l4.94 2.63 1.63 5.46c.14.48.74.62 1.07.25l2.42-2.73 4.96 3.65c.44.33 1.07.13 1.22-.4l3.96-17.15c.08-.34-.1-.68-.4-.81zM7.22 13.56l-3.3-1.75 14.54-6.17-11.24 7.92zm3.32 4.4v-3.08l1.66 1.22-1.66 1.86zm3.3-1.6l-2.45-1.8 8.78-6.18-6.33 7.98z"/></svg>
-                    </a>
-                    <span class="social-label">Telegram</span>
-                </div>
+    <section id="services">
+        <div class="reviews-header fade-in">
+            <h2 class="section-title">Услуги и Цены</h2>
+            <div class="section-divider"></div>
+        </div>
 
-                <div class="social-item">
-                    <a href="https://vk.com/ivanova_anna_08" target="_blank" class="social-link" title="ВКонтакте">
-                        <svg viewBox="0 0 24 24"><path d="M15.6 21H8.4C4.8 21 3 19.2 3 15.6V8.4C3 4.8 4.8 3 8.4 3h7.2C19.2 3 21 4.8 21 8.4v7.2c0 3.6-1.8 5.4-5.4 5.4zm-4.37-6.33c2.25 0 2.37 1.84 4.02 1.84 1.25 0 1.9-1.32 1.9-1.32s-.13-1.2-1.04-1.7c-1.3-.72-2.9-1.73-2.9-2.9 0-1.2 1.3-2.32 2.7-2.32.96 0 1.8.52 1.8.52s-.22 1.1-.96 1.15c-1.36.08-1.7 1-1.7 1.45 0 .63.67 1.16 1.3 1.62.63.48 2.05 1.55 2.05 3.32 0 2.22-2.02 3.03-3.6 3.03-2.7 0-3.23-1.63-3.23-1.63s-1.8.1-2.48-.12c-.52-.16-1.12-.76-2.22-3.08-.1-.2-.22-.38-.22-.65 0-.5.5-.66.5-.66h2.2c.28 0 .5.16.6.46 0 0 .58 1.6 1.38 2.37.5.47.8.4.8-.57V9.7c0-1.73-.8-1.8-.8-1.8h2.32c.32 0 .5.16.5.64v3.2c0 .35.15.48.25.48.1 0 .28-.1.6-.53.94-1.24 1.32-3.25 1.32-3.25s.12-.25.4-.25h2.25c.34 0 .5.18.5.55 0 .27-.26 1.2-1.2 2.6-.96 1.4-2.5 2.63-2.8 2.86-.3.22-.32.32 0 .7.26.3 1.08 1.1 1.46 1.5.43.45.62.66.62.9 0 .4-.6.44-.6.44h-2.1c-.55 0-.8-.3-1.05-.6-.5-.58-1.18-1.42-1.58-1.42-.25 0-.35.1-.35.5v1.65c0 .34-.1.6-.74.6-2.18 0-4.04-1.62-5.45-4.54C6.2 8.7 6.13 8.5 6.4 8.5h2.3c.27 0 .42.13.52.4.67 1.84 1.82 3.86 3.86 3.86z"/></svg>
-                    </a>
-                    <span class="social-label">ВКонтакте</span>
-                </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">📷</div>
+                <h3>Репортажная съемка</h3>
+                <p>Профессиональная съемка мероприятий, праздников, концертов и корпоративов. Ловлю самые важные моменты и живые эмоции. Передача атмосферы вашего события.</p>
+                <div class="service-price">Цена договорная</div>
             </div>
 
-            <div class="copyright">
-                © 2026 by <a href="https://d-gavrilenko.ru" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--accent-color);">GavrilenkoDmitry</a>. Все права защищены.
+            <div class="service-card fade-in">
+                <div class="service-icon">✦</div>
+                <h3>Портретная съемка</h3>
+                <p>Индивидуальная фотосессия, направленная на раскрытие вашего характера. Помощь в позировании, подбор локации и образа.</p>
+                <div class="service-price">Цена договорная</div>
             </div>
         </div>
+
+        <div class="promo-banner fade-in">
+            <h3>Специальная акция</h3>
+            <p>Приведи друга и получи скидку 20% на любую фотосессию!</p>
+            <a href="#contacts" class="btn-white">Записаться со скидкой</a>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <div class="fade-in">
+            <h2 class="section-title">Контакты</h2>
+            <div class="section-divider"></div>
+            <div class="contact-links">
+                <a href="tel:+79001234567" class="contact-link">
+                    <span class="icon"></span>
+                    <span>Телефон</span>
+                </a>
+                <a href="https://t.me/annaromanovna" class="contact-link" target="_blank">
+                    <span class="icon">✈️</span>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://vk.com/annaromanovna" class="contact-link" target="_blank">
+                    <span class="icon">💬</span>
+                    <span>ВКонтакте</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 by <a href="https://d-gavrilenko.ru" target="_blank">GavrilenkoDmitry</a>. Все права защищены.
     </footer>
 
     <script>
-        // Анимация при скролл
-        window.addEventListener('scroll', reveal);
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowheight = window.innerHeight;
-                var revealtop = reveals[i].getBoundingClientRect().top;
-                var revealpoint = 100;
-                if (revealtop < windowheight - revealpoint) {
-                    reveals[i].classList.add('active');
-                } else {
-                    reveals[i].classList.remove('active');
+        // Burger menu
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
-            }
-        }
-        reveal();
+            });
+        }, { threshold: 0.1 });
 
-        // Мобильное меню
-        function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('nav-active');
-        }
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
-
 </body>
 </html>
+<!-- Для Ульяны (фото 1) -->
+<img src="reviews/Screenshot_20261013_081455_Telegram-compressed.jpeg" alt="Отзыв Ульяны">
+
+<!-- Для Полины (фото 2 или 3) -->
+<img src="reviews/Screenshot_20261010_164415_Telegram-compressed.jpeg" alt="Отзыв Полины">
+
+<!-- Для Жени -->
+<img src="reviews/Screenshot_20261010_145157_Telegram-compressed.jpeg" alt="Отзыв Жени">
+
+<!-- Для Сони -->
+<img src="reviews/Screenshot_20261013_081402_Telegram-compressed.jpeg" alt="Отзыв Сони">
