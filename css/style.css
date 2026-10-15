@@ -274,7 +274,7 @@ header {
     .gallery { column-count: 1; }
     .section-title { font-size: 2.2rem; }
 }
-/* --- ОТЗЫВЫ --- */
+/ --- ОТЗЫВЫ --- /
 .reviews-section {
     padding: 80px 0 40px;
     position: relative;
@@ -301,72 +301,108 @@ header {
     color: var(--accent-color);
 }
 
-/* Делаем строгую сетку на 3 колонки */
+/ Сетка карточек отзывов /
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     align-items: stretch;
 }
 
-.review-item {
+/ Карточка отзыва /
+.review-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
 }
 
-/* Увеличиваем фото до размеров как на референсе */
-.review-avatar {
-    width: 180px; /* Увеличили размер */
-    height: 180px; /* Увеличили размер */
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 25px;
-    border: 2px solid var(--gray-color);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 184, 148, 0.15);
+}
+
+/ Контейнер для скриншота /
+.review-screenshot {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
     flex-shrink: 0;
 }
 
-/* Принудительно отправляем весь текст во вторую колонку */
-.review-name, 
-.review-subtitle, 
-.review-item p.review-text {
-    grid-column: 2;
+.review-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
 }
 
-/* Аккуратная типографика для компактного вида */
-.review-name {
-    font-size: 1.1rem;
+.review-card:hover .review-screenshot img {
+    transform: scale(1.03);
+}
+
+/ Placeholder если изображение не загрузилось /
+.screenshot-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #f8f8f8 0%, #efefef 100%);
+    color: #999;
+}
+
+.screenshot-placeholder svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.4;
+}
+
+.screenshot-placeholder span {
+    font-size: 13px;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+/ Имя автора под скриншотом /
+.review-author {
+    padding: 20px 24px;
+    text-align: center;
     font-family: var(--font-heading);
-    margin-bottom: 0;
+    font-size: 15.5rem;
     color: var(--text-color);
-    line-height: 1.2;
-    padding-top: 4px; /* Легкое выравнивание имени по верхнему краю аватара */
+    letter-spacing: 1px;
+    border-top: 1px solid var(--gray-color);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.review-subtitle {
-    font-size: 0.75rem;
-    color: var(--accent-color);
-    margin-top: 2px;
-    margin-bottom: 4px;
-    font-weight: 500;
-}
-
-.review-item p.review-text {
-    font-size: 0.85rem;
-    line-height: 1.45;
-    color: #636e72;
-    margin-top: 4px;
-    margin-bottom: 0;
-    border-left: none;
-    padding-left: 0;
+/ Адаптивность /
+@media (max-width: 1024px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
 }
 
 @media (max-width: 768px) {
     .reviews-grid {
         grid-template-columns: 1fr;
-        gap: 40px 15px;
+        gap: 30px;
+    }
+    
+    .review-author {
+        font-size: 15.3rem;
+        padding: 16px 20px;
     }
 }
